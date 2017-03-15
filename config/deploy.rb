@@ -10,7 +10,7 @@ set :branch, "the-end"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/var/www/my_app_name"
+ set :deploy_to, "home/aurelie/www/rails-intro"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -32,7 +32,7 @@ set :branch, "the-end"
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+ set :keep_releases, 5
 
 namespace :deploy do
   after :finished, :restart_puma do
@@ -41,4 +41,10 @@ namespace :deploy do
       execute :sudo, 'service nginx reload'
     end
   end
+end
+
+#source the environnement variables
+prefix = "set -a; . ~/.envfile; set +a;"
+[:bundle, :rake, :rails].each do |cmd|
+    SSHKit.config.command_map.prefix[cmd].push(prefix)
 end
