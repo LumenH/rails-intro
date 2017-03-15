@@ -105,14 +105,10 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     nested_form (0.3.2)
-<<<<<<< HEAD
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
-    nio4r (1.2.1)
-=======
     nio4r (2.0.0)
->>>>>>> 1e6c0052651dca2660db128ee6d8144207f6df02
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     paperclip (5.1.0)
